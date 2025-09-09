@@ -22,7 +22,6 @@ This is the front-end for the learner app of the GyanSetu project. It makes use 
 
 You would install this just like any other react project:
 
-````bash
 ```bash
 git clone git@github.com:gyansetu-app/learner-frontend.git
 cd learner-frontend
@@ -50,4 +49,4 @@ npm run serve
 ```
 
 This would start the production server at 0.0.0.0:4173. You would then need to point it to a reverse proxy such as nginx and use an SSL certificate so that it uses the HTTPS protocol, only then would the PWA work even offline scenarios.
-````
+
