@@ -14,7 +14,6 @@ export default function DefaultLayout() {
       }}
     >
       <Outlet />
-      <BottomBar />
     </div>
   );
 }

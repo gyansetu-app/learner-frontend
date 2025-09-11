@@ -1,82 +1,81 @@
-import {
-  Navbar,
-  NavbarContent,
-  NavbarItem,
-  User,
-  Image,
-  ScrollShadow,
-  Button,
-} from "@heroui/react";
-
-import Hero from "../components/Hero.jsx";
-import ModuleCard from "../components/ModuleCard.jsx";
-
-function MainContent({ cards }) {
-  return (
-    <>
-      {/* Main Content */}
-      <div>
-        <p className="text-3xl p-3">Installed Modules</p>
-        {/* Horizontally scrolling cards */}
-        <ScrollShadow hideScrollBar>
-          <div style={{ display: "flex", gap: "1rem", padding: "0.5rem" }}>
-            {cards.map((card, idx) => (
-              <ModuleCard card={card} key={idx} />
-            ))}
-          </div>
-        </ScrollShadow>
-      </div>
-    </>
-  );
-}
+import { Navbar, NavbarContent, NavbarItem } from "@heroui/react";
+import NavigationButton from "../components/NavigationButton";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
-  const userName = "PlayerOne";
-  const exp = 1200;
-  const level = 5;
-  const cards = [
-    {
-      title: "Chemistry",
-      desc: "Acids and Bases",
-      img: "../public/img/chem_back.png",
-      progress: 50,
-    },
-    {
-      title: "Physics",
-      desc: "Laws of Motion",
-      img: "../public/img/phy_back.png",
-      progress: 83,
-    },
-    {
-      title: "Mathematics",
-      desc: "Lines and Angles",
-      img: "../public/img/math_back.png",
-      progress: 10,
-    },
-  ];
+  const navigate = useNavigate();
+
+  const userName = "Team Agni";
+  const coins = 250; // mock value
+  const dailyStreak = "5 days"; // example streak count
 
   return (
-    <>
-      <Navbar position="static" isBlurred={false}>
-        <NavbarContent justify="start">
+    <div
+      className="min-h-screen flex flex-col justify-between bg-cover bg-center overflow-hidden bg-white/50"
+      style={{ backgroundImage: "url('/img/background.png')" }}
+    >
+      {/* Top Navbar */}
+      <Navbar
+        position="static"
+        isBlurred={false}
+        className="bg-transparent shadow-none h-14 px-0"
+      >
+        <NavbarContent justify="start" className="flex items-center gap-2">
           <NavbarItem>
-            <User name={userName} />
+            <span className="px-3 py-1 rounded-xl bg-black/50 text-white text-sm font-medium">
+              Welcome, {userName}
+            </span>
           </NavbarItem>
         </NavbarContent>
-        <NavbarContent justify="end">
+
+        <NavbarContent justify="end" className="flex items-center gap-2">
+          {/* Coins */}
           <NavbarItem>
-            <div style={{ textAlign: "right" }}>
-              <div style={{ fontWeight: "bold" }}>EXP: {exp}</div>
-              <div>Level {level}</div>
+            <div className="flex items-center gap-1 px-3 py-1 rounded-xl bg-black/50 text-sm font-medium">
+              <span className="text-yellow-400 text-lg">🪙</span>
+              <span className="text-white font-semibold">{coins}</span>
+            </div>
+          </NavbarItem>
+
+          {/* Daily Login Streak */}
+          <NavbarItem>
+            <div
+              className="flex items-center justify-center w-8 h-8 rounded-full bg-yellow-500 text-white font-bold text-sm hover:bg-red-600 cursor-pointer"
+              onClick={() => console.log("Daily streak clicked")}
+            >
+              {dailyStreak}
             </div>
           </NavbarItem>
         </NavbarContent>
       </Navbar>
-      <div style={{ flex: 1, padding: "0rem" }}>
-        <Hero />
-        <MainContent cards={cards} />
+
+      {/* Navigation Buttons */}
+      <div className="flex-1 flex flex-col items-center mt-16 gap-4 px-6 w-full max-w-md mx-auto">
+        {/* Full-width button */}
+        <NavigationButton
+          label="LEARN"
+          icon="🏫"
+          onClick={() => navigate("/learn")}
+          className="bg-gradient-to-r from-green-400 to-green-600 text-white font-semibold shadow-lg hover:scale-105 transition-transform rounded-xl py-3"
+        />
+
+        {/* Two side-by-side buttons */}
+        <div className="flex w-full gap-3">
+          <NavigationButton
+            label="LEADERBOARD"
+            icon="🏆"
+            onClick={() => console.log("Leaderboard clicked")}
+            className="flex-1 w-0 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white font-semibold shadow-lg hover:scale-105 transition-transform rounded-xl py-3"
+          />
+          <NavigationButton
+            label="MAP"
+            icon="🗺️"
+            onClick={() => console.log("Progress clicked")}
+            className="flex-1 w-0 bg-gradient-to-r from-blue-400 to-blue-600 text-white font-semibold shadow-lg hover:scale-105 transition-transform rounded-xl py-3"
+          />
+        </div>
       </div>
-    </>
+    </div>
   );
 }
 

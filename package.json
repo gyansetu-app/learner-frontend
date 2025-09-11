@@ -1,8 +1,23 @@
 {
   "name": "gyansetu",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
+  "description": "This is the front-end for the learner app of the GyanSetu project. It makes use of react, indexeddb and VitePWA to provide a hybrid webapp experience with offline-first support and modularity!",
+  "homepage": "https://github.com/gyansetu-app/learner-frontend#readme",
+  "bugs": {
+    "url": "https://github.com/gyansetu-app/learner-frontend/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gyansetu-app/learner-frontend.git"
+  },
+  "license": "ISC",
+  "author": "",
   "type": "module",
+  "main": "eslint.config.js",
+  "directories": {
+    "doc": "docs"
+  },
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",

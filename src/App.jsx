@@ -21,6 +21,7 @@ import HomePage from "./pages/HomePage.jsx";
 import ARPage from "./pages/ARPage.jsx";
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import LearnPage from "./pages/LearnPage.jsx";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route element={<DefaultLayout />}>
           <Route path="/" element={<HomePage />} />
           <Route path="/ar" element={<ARPage />} />
+          <Route path='/learn' element={<LearnPage/>} />
         </Route>
       </Routes>
     </BrowserRouter>
