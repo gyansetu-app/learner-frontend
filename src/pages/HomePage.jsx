@@ -66,13 +66,13 @@ function HomePage() {
           <NavigationButton
             label="LEADERBOARD"
             icon={<FontAwesomeIcon icon={faTrophy} />}
-            onClick={() => console.log("Leaderboard clicked")}
+            onClick={()=>navigate("leaderboard")}
             className="flex-1 w-0 bg-gradient-to-r from-yellow-400 to-yellow-500 text-white font-semibold shadow-lg hover:scale-105 transition-transform rounded-xl py-3"
           />
           <NavigationButton
             label="MAP"
             icon={<FontAwesomeIcon icon={faMap} />}
-            onClick={() => console.log("Progress clicked")}
+            onClick={()=>navigate("map")}
             className="flex-1 w-0 bg-gradient-to-r from-blue-400 to-blue-600 text-white font-semibold shadow-lg hover:scale-105 transition-transform rounded-xl py-3"
           />
         </div>

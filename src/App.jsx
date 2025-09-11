@@ -23,6 +23,7 @@ import ARPage from "./pages/ARPage.jsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LearnPage from "./pages/LearnPage.jsx";
 import ChemistryPage from "./pages/ChemistryPage.jsx";
+import MapPage from "./pages/MapPage.jsx";
 
 function App() {
   return (
@@ -35,6 +36,8 @@ function App() {
           <Route path='/learn/chemistry' element={<ChemistryPage/>} />
           <Route path='/learn/math' element={<ChemistryPage/>} />
           <Route path='/learn/computer' element={<ChemistryPage/>} />
+          <Route path='/map' element={<MapPage/>} />
+          <Route path='/map' element={<ChemistryPage/>} />
         </Route>
       </Routes>
     </BrowserRouter>
